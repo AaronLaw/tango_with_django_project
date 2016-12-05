@@ -1,6 +1,7 @@
 ! Project purpose
 
-
+!Overview design
+ 
 !!Installation
 
 !!!Setup the environment
@@ -11,6 +12,9 @@
 
 
 !! Deployment
+
+Ref:
+The structure/formatting of this doc: django weekly http://djangoweekly.com/newsletter/ -> Projects -> https://github.com/bitpixdigital/django-next-train
 ----
 !!Docker
 
