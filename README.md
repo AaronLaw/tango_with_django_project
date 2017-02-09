@@ -12,8 +12,6 @@ As I need a good record as a reference on how to develop with Django in the futu
 <img src="https://www.spaghetti-western.net/images/thumb/7/73/DjangoSpecial_Banner.png/400px-DjangoSpecial_Banner.png">
 </p>
 
-Git recently celebrated its 10 years anniversary, but most engineers are still confused by its intricacy (3 of the [top 5 questions of all time](http://stackoverflow.com/questions?sort=votes) on Stack Overflow are Git related). Since Git turns even simple actions into mystifying commands (“git add” to stage versus “git reset HEAD” to unstage anyone?), it’s no surprise users waste time, get frustrated, distract the rest of their team for help, or worse, screw up their repo!
-
 ## Design overview
 
 
@@ -22,13 +20,33 @@ Getting Started
 
 ## Setup
 
+To prevent breaking your system and prevent dependence hell, we are going to setup a development environment in virtual environment.
+
 ### The Setup process 1:
 Setup the environment with virtualenv and  virtualenvwrapper.
 
-    this is some commands.
-    a second commands
-    
-This is an `inline command`.
+    pip install virtualenv
+    pip install virtualenvwrapper
+
+And then execute a shell script to activate a virtual environment.
+
+	source virtualenvwrapper.sh
+
+Then create a virtual environment for the project, and then activate it.
+
+	mkvirtualenv rango
+	workon rango
+
+When a `(rango)$` is shown on promte, you are successfully in the virtual environment `rango`.
+Check if you have Django installed with `pip list`:
+
+	`pip list`
+
+Install Django with `pip`:
+
+	pip install django
+
+This will install the latest stable Django.
 
 ### The Setup process 2:
 Setup the environment with docker.
