@@ -20,13 +20,13 @@ Getting Started
 
 ## Setup
 
-To prevent breaking your system and prevent dependence hell, we are going to setup a development environment in virtual environment.
+To prevent breaking our system and prevent dependency hell, we are going to setup a development environment in virtual environment.
 
 ### The Setup process 1:
-Setup the environment with virtualenv and  virtualenvwrapper.
+Setup a [virtual environment] (http://docs.python-guide.org/en/latest/dev/virtualenvs/) with [virtualenv] (https://pypi.python.org/pypi/virtualenv) and [virtualenvwrapper] (https://virtualenvwrapper.readthedocs.io/en/latest/index.html).
 
     pip install virtualenv
-    pip install virtualenvwrapper
+    pip install virtualeneuvwrapper
 
 And then execute a shell script to activate a virtual environment.
 
@@ -37,7 +37,9 @@ Then create a virtual environment for the project, and then activate it.
 	mkvirtualenv rango
 	workon rango
 
-When a `(rango)$` is shown on promte, you are successfully in the virtual environment `rango`.
+(As we are going to execute Django on python 3, we should tell virtualenv where the python3 located by issuing `mkvirtualenv -p /usr/local/bin/python3.5`, which that location could be found by issuing `whereis python3`)
+
+When a `(rango)$` is shown on promte, you are successfully in a virtual environment `rango`.
 Check if you have Django installed with `pip list`:
 
 	`pip list`
