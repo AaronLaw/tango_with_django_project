@@ -37,7 +37,7 @@ Then create a virtual environment for the project, and then activate it.
 	mkvirtualenv rango
 	workon rango
 
-(As we are going to execute Django on python 3, we should tell virtualenv where the python3 located by issuing `mkvirtualenv -p /usr/local/bin/python3.5`, which that location could be found by issuing `whereis python3`)
+(As we are going to execute Django on python 3, we should tell virtualenv where the python3 located by issuing `mkvirtualenv -p /usr/bin/python3.5 rango`, which the location of python3 could be found by issuing `whereis python3`)
 
 When a `(rango)$` is shown on promte, you are successfully in a virtual environment `rango`.
 Check if you have Django installed with `pip list`:
@@ -72,6 +72,7 @@ Reference
 
 ## Docker
 * [Django by Docker Official Image] (https://store.docker.com/images/65765d71-d893-407d-a707-486c7381dfbf?tab=description)
+* [Quickstrt: Compose and Django] (https://docs.docker.com/compose/django/)
 
 ## Git 
 * [A successful Git branching model] (http://nvie.com/posts/a-successful-git-branching-model/) from [Git flow 開發流程] (https://ihower.tw/blog/archives/5140)
