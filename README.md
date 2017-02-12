@@ -57,6 +57,11 @@ Setup the environment with docker.
 
 ## Deployment
 
+Update the requirements.txt with the current packages by
+
+	pip freeze > requirements.txt
+
+
 Reference
 =========
 
