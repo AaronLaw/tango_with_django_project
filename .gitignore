@@ -1,0 +1,5 @@
+#pyhton
+.pyc
+
+#sqlite db
+.sqlite3
