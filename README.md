@@ -39,7 +39,7 @@ Then create a virtual environment for the project, and then activate it.
 
 (As we are going to execute Django on python 3, we should tell virtualenv where the python3 located by issuing `mkvirtualenv -p /usr/bin/python3.5 rango`, which the location of python3 could be found by issuing `whereis python3`)
 
-When a `(rango)$` is shown on promte, you are successfully in a virtual environment `rango`.
+When a `(rango)$` is shown on prompt, you are successfully in a virtual environment `rango`.
 Check if you have Django installed with `pip list`:
 
 	`pip list`
