@@ -55,8 +55,10 @@ Setup the environment with docker.
 
 ## Run it!
 
-Edit `ALLOWED_HOSTS = []` in setting.py, and then run the test server
+Edit `ALLOWED_HOSTS = []` in setting.py. Activate the virtual environment and then run the test server
 
+	source virtualenvwrapper.sh # if the workon command does not recognized
+	workon rango
 	python manage.py runserver
 
 ## Deployment
