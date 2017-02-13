@@ -55,6 +55,10 @@ Setup the environment with docker.
 
 ## Run it!
 
+Edit `ALLOWED_HOSTS = []` in setting.py, and then run the test server
+
+	python manage.py runserver
+
 ## Deployment
 
 Update the requirements.txt with the current packages by
