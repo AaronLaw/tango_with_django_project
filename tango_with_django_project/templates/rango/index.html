@@ -14,7 +14,7 @@
             <h2>Most Liked Categories</h2>
             <ul>
                 {% for category in category %}
-                    <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
+                    <li><a href="/rango/category/show/{{ category.slug }}">{{ category.name }}</a></li>
                 {% endfor %}
             </ul>
             {% else %}
@@ -34,7 +34,7 @@
             <div>
                 <a href="/rango/about/">About</a><br />
                 <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango">
-                <a href="/rango/category/add/">Add a New Category</a><br />
+                <a href="/rango/category/create/">Create a New Category</a><br />
             </div>
     </body>
 </html>

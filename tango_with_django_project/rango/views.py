@@ -58,7 +58,7 @@ def show_category(request, category_name_slug):
 	#print(Category.objects.all)
 	return render(request, 'rango/category.html', context_dict)
 
-def add_category(request):
+def create_category(request):
 	form = CategoryForm()
 
 	# A HTTP POST?
@@ -81,4 +81,4 @@ def add_category(request):
 
 	# Will handle the bad form, new form, or no form suppiled cases.
 	# Render the form with error message (if any).
-	return render(request, 'rango/add_category.html', {'form':form})
+	return render(request, 'rango/create_category.html', {'form':form})
