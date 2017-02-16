@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from rango.models import Category, Page
 
 # Using forms
-from rango.forms import CategoryForm
+from rango.forms import CategoryForm, PageForm
 
 def index(request):
 	context_dict = {}
@@ -82,3 +82,29 @@ def create_category(request):
 	# Will handle the bad form, new form, or no form suppiled cases.
 	# Render the form with error message (if any).
 	return render(request, 'rango/create_category.html', {'form':form})
+
+
+def create_page(request, category_name_slug):
+	'''Add a new page entry from /rango/category/category-name/page/create/,
+	this method add a page under a category.'''
+	try:
+		category = Category.objects.get(slug=category_name_slug)
+	except Categroy.DoesNotExist:
+		category = None
+	form = PageForm()
+	if request.method == 'POST':
+		form = PageForm(request.POST)
+
+		if form.is_valid():
+			if category:
+				page = form.save(commit=False)
+				page.Category = category
+				page.views = 0
+				page.save()
+			return show_category(request, category_name_slug)
+		else:
+			print(form.errors)
+
+	context_dict = {'category':category, 'form':form}
+	return render(request, 'rango/create_page.html', context_dict)
+		
