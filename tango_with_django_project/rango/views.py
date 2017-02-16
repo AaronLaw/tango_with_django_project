@@ -89,7 +89,7 @@ def create_page(request, category_name_slug):
 	this method add a page under a category.'''
 	try:
 		category = Category.objects.get(slug=category_name_slug)
-	except Categroy.DoesNotExist:
+	except Category.DoesNotExist:
 		category = None
 	form = PageForm()
 	if request.method == 'POST':
