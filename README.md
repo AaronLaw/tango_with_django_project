@@ -53,6 +53,18 @@ This will install the latest stable Django.
 ### The Setup process 2:
 Setup the environment with docker.
 
+Refer to the official doc of docker on Django, we should prepare a `Dockerfile`, `requirements.txt` and `docker-compose.yml`:
+
+	workon rango
+	pip freeze > requirements.txt
+
+And then create a project and execute the docker environment
+
+	docker-compose run web django-admin.py startproject tango_with_django_project
+	docker-compose up
+
+(ref: https://docs.docker.com/compose/django/)
+
 ## Run it!
 
 Edit `ALLOWED_HOSTS = []` in setting.py. Activate the virtual environment and then run the test server
