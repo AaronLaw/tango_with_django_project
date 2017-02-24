@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>
+            Rango - {% block title_block%} How to Tango with Django!{% endblock %}
+        </title>
+    </head>
+    <body>
+        <!-- Page spucific content goes here -->
+        <div>
+            {% block body_block %}
+            {% endblock %}
+        </div>
+        <hr />
+        <div>
+            <ul>
+                <li><a href="{% url 'create_category' %}"></a></li>
+                <li><a href="{% url 'about' %}"></a></li>
+                <li><a href="{% url 'index' %}"></a></li>
+                <li><a href="{% url 'register' %}"></a>Sign Up</li>
+                <li><a href="{% url 'login' %}"></a>Login</li>
+            </ul>
+        </div>
+    </body>
+</html>

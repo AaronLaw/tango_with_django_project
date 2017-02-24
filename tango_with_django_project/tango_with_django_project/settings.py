@@ -103,6 +103,30 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    #'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    #'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    #'django.contrib.auth.hashers.Argon2PasswordHasher',
+]
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {'min_length': 9,}
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -116,6 +140,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/rango/login/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
