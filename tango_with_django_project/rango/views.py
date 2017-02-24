@@ -3,7 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login # for user_login()
+from django.contrib.auth import authenticate, login, logout # for user_login()
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from rango.models import Category, Page, UserProfile
 
@@ -191,7 +192,7 @@ def user_login(request):
 				login(request, user)
 				return HttpResponseRedirect(reverse('index')) # lookup the URL of the name 'index'
 			else:
-				# An inactive account was used - no logging in!
+				# An inactive account was used - no logging in!, logout
 				return HttpResponse("You Rango account is disabled.")
 		else:
 			# Bad login details were provided. So we can't log the user in.
@@ -204,3 +205,17 @@ def user_login(request):
 		# No context variables to poss to the template system, hence the
 		# blank dictionary object...
 		return render(request, 'rango/login.html', [])
+
+# Use the login_requiret() decorator to ensure only those logged in can access the view.
+@login_required
+def user_logout(request):
+	# Since we know the user is logged in, we can now just log them out.
+	logout(request)
+	# Take the user back to the homepage.
+	return HttpResponse(reverse('index'))
+	
+
+# Restricting access with a decorator
+@login_required
+def restricted(request):
+	return HttpResponse("Since you're logged in, you can see this text!")
