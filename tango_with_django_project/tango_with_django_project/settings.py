@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'registration', # should be immediately above 'django.contrib.auth'
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -140,7 +141,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_URL = '/rango/login/'
+#LOGIN_URL = '/rango/login/' # We use django-registration-redux instead of tailed-made auth
+
+# For django-registration-redux
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
+LOGIN_REDIRECT_URL = '/rango/'
+LOGIN_URL = '/accounts/login/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
