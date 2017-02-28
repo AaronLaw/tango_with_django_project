@@ -16,11 +16,12 @@
         <hr />
         <div>
             <ul>
-                <li><a href="{% url 'create_category' %}"></a></li>
-                <li><a href="{% url 'about' %}"></a></li>
-                <li><a href="{% url 'index' %}"></a></li>
-                <li><a href="{% url 'register' %}"></a>Sign Up</li>
-                <li><a href="{% url 'login' %}"></a>Login</li>
+                <li><a href="{% url 'create_category' %}">Create a New Category</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'index' %}">Index</a></li>
+                <li><a href="{% url 'registration_register' %}">Sign Up</a></li>
+                <li><a href="{% url 'auth_login' %}">Login</a></li>
+                <li><a href="{% url 'auth_logout' %}">Logout</a></li>
             </ul>
         </div>
     </body>
