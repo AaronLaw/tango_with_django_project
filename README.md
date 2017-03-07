@@ -95,7 +95,7 @@ Reference
 
 ## Docker
 * [Django by Docker Official Image] (https://store.docker.com/images/65765d71-d893-407d-a707-486c7381dfbf?tab=description)
-* [Quickstrt: Compose and Django] (https://docs.docker.com/compose/django/)
+* [Quickstart: Compose and Django] (https://docs.docker.com/compose/django/)
 
 ## Git 
 * [A successful Git branching model] (http://nvie.com/posts/a-successful-git-branching-model/) from [Git flow 開發流程] (https://ihower.tw/blog/archives/5140)
