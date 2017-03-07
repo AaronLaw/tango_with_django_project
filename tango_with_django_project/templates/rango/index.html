@@ -14,9 +14,9 @@
     <div class="col-lg-6">
         {% if category %}
         <h2>Most Liked Categories</h2>
-        <ul>
+        <ul class="list-group">
             {% for category in category %}
-                <li><a href="{% url 'show_category' category.slug %}">{{ category.name }}</a></li>
+                <li class="list-group-item"><a href="{% url 'show_category' category.slug %}">{{ category.name }}</a></li>
             {% endfor %}
         </ul>
         {% else %}
@@ -26,9 +26,9 @@
     <div class="col-lg-6">
         {% if pages %}
         <h2>Most Viewed Pages</h2>
-        <ul>
+        <ul class="list-group">
             {% for page in pages %}
-                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                <li class="list-group-item"><a href="{{ page.url }}">{{ page.title }}</a></li>
             {% endfor %}
         {% endif %}
         </ul>
