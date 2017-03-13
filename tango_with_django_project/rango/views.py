@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
@@ -226,3 +226,27 @@ def create_page(request, category_name_slug):
 @login_required
 def restricted(request):
 	return HttpResponse("Since you're logged in, you can see this text!")
+
+# Tracks page clickthroughs
+def track_url(request):
+	'''It takes a parameterised HTTP GET request (e.g. rango/goto/?page_id=1) and updates
+	the number of views for the pages. The view should then redirect to the actual URL.'''
+	# DONE: update the template so that it uses rango/goto/?page_id=xxx instead of providing
+	# the direct URL for users to click.
+	pass
+	# user click on an URL
+	# page.views++
+	# 
+	page_id = None
+	if request.method == 'GET' and 'page_id' in request.GET:
+		page_id = request.GET['page_id']
+
+		try:
+			page = Page.objects.get(id=page_id)
+			page.views = page.views + 1
+			page.save()
+			url = page.url
+		except:
+			pass
+
+		return redirect(url)
