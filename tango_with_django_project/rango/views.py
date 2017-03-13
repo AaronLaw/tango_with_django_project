@@ -46,7 +46,7 @@ def show_category(request, category_name_slug):
 		
 		# Retrieve all of the associated pages.
 		# Notes that filter() will return a list of page objects or an empty list.
-		pages = Page.objects.filter(Category=category)
+		pages = Page.objects.filter(Category=category).order_by('-views')
 
 		# Adds our results list to the template context under name pages.
 		context_dict['pages'] = pages
