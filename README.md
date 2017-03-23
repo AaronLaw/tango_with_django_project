@@ -25,12 +25,16 @@ To prevent breaking our system and prevent dependency hell, we are going to setu
 ### The Setup process 1:
 Setup a [virtual environment] (http://docs.python-guide.org/en/latest/dev/virtualenvs/) with [virtualenv] (https://pypi.python.org/pypi/virtualenv) and [virtualenvwrapper] (https://virtualenvwrapper.readthedocs.io/en/latest/index.html).
 
+Firstly, install virtualenv and virtualenvwrapper.
+
     pip install virtualenv
-    pip install virtualeneuvwrapper
+    pip install virtualenvwrapper
 
 And then execute a shell script to activate a virtual environment.
 
-	source virtualenvwrapper.sh
+	source virtualenvwrapper.sh 
+
+(Try `source /usr/local/bin/virtualenvwrapper.sh` instead if you cannot not activate a virtual environment succussfully. And please refer to the doc of virtualenvwrapper.)
 
 Then create a virtual environment for the project, and then activate it.
 
@@ -40,15 +44,22 @@ Then create a virtual environment for the project, and then activate it.
 (As we are going to execute Django on python 3, we should tell virtualenv where the python3 located by issuing `mkvirtualenv -p /usr/bin/python3.5 rango`, which the location of python3 could be found by issuing `whereis python3`)
 
 When a `(rango)$` is shown on prompt, you are successfully in a virtual environment `rango`.
+
+Once a virtual environment is setup, we are focus on Python stuffs now:
+
 Check if you have Django installed with `pip list`:
 
-	`pip list`
+	pip list
 
 Install Django with `pip`:
 
 	pip install django
 
-This will install the latest stable Django.
+This will install the latest stable Django. However, we should install all the required package with `requiruments.txt`.
+
+	pip install -r requirements.txt
+
+It will install the packages automatically with matching version.
 
 ### The Setup process 2:
 Setup the environment with docker.
