@@ -85,6 +85,7 @@ Reference
 
 ## API
 * [“Create a Django API in Under 20 Minutes”] (https://medium.com/@scottdomes/create-a-django-api-in-under-20-minutes-2a082a60f6f3)
+* Google: Django and Angular 2 -> [Reddit: Django with Angular 2/] (https://www.reddit.com/r/django/comments/51k896/django_with_angular_2/) -> [Slides.com: 5 quick tips django docker] (http://slides.com/jamespacileo/5-quick-tips-django-docker-4#/)
 
 ## Docker
 * [Django by Docker Official Image] (https://store.docker.com/images/65765d71-d893-407d-a707-486c7381dfbf?tab=description)
@@ -128,4 +129,4 @@ License
 GitUp is copyright 2015-2016 Aaron Law and available under [GPL v3 license](http://www.gnu.org/licenses/gpl-3.0.txt). See the [LICENSE](LICENSE) file in the project for more information.
 
 
-Last update: 2016-12-28 01:27, Bangkok
+Last update: 2017-03-23 01:27, Hong Kong
