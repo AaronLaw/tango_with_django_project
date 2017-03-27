@@ -11,6 +11,9 @@ from rango.models import Category, Page, UserProfile
 # Using forms
 from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 
+# Extend CBV from django-registration-redux
+from registration.views import RegistrationView
+
 def index(request):
 	context_dict = {}
 	# Query the database for a list of ALL categories currently stored.
@@ -32,7 +35,7 @@ def about(request):
 	context_dict = {'about': 'Rango says here is the about page.'}
 	return render(request, 'rango/about.html', context_dict)
 
-def show_category(request, category_name_slug):
+def show_category(request, category_name_slug): # get category_name_slug from template (a click)
 	'''@category_name_slug stores the encoded category name from URL in browsers.'''
 	
 	#Create a context dictionary which we can pass to the template rendering engine.
@@ -69,7 +72,7 @@ def create_category(request):
 
 	# A HTTP POST?
 	if request.method == 'POST':
-		form = CategoryForm(request.POST)
+		form = CategoryForm(request.POST) # create a CategoryForm instance
 
 		# Have we been provided with a valid form?
 		if form.is_valid():
@@ -99,14 +102,14 @@ def create_page(request, category_name_slug):
 		category = None
 	form = PageForm()
 	if request.method == 'POST':
-		form = PageForm(request.POST)
+		form = PageForm(request.POST) # create a PageForm instance from POST data
 
 		if form.is_valid():
 			if category:
-				page = form.save(commit=False)
+				page = form.save(commit=False) # create a page instance from a PageForm instance
 				page.Category = category
 				page.views = 0
-				page.save()
+				page.save() # save the page instance to database
 			return show_category(request, category_name_slug)
 		else:
 			print(form.errors)
@@ -250,3 +253,26 @@ def track_url(request):
 			pass
 
 		return redirect(url)
+
+@login_required
+def register_profile(request):
+	form = UserProfileForm()
+
+	if request.method == "POST":
+		form = UserProfileForm(reqeust.POST, request.FILES)
+		if form.is_valid():
+			user_profile = form.save(commit=False) # create a profile instance from UserProfileForm instance
+			user_profile.user = request.user
+			user_profile.save()
+
+			return redirect('index')
+		else:
+			print(form.errors)
+	context_dict = {'form': form}
+
+	render(request, 'rango/profile_registration.html', context_dict)
+
+# Modifying the Registration Flow defined on django-registration-redux
+class MyRegistrationView(RegistrationView):
+	def get_success_url(self, user):
+		return url('register_profile')
