@@ -25,12 +25,16 @@ To prevent breaking our system and prevent dependency hell, we are going to setu
 ### The Setup process 1:
 Setup a [virtual environment] (http://docs.python-guide.org/en/latest/dev/virtualenvs/) with [virtualenv] (https://pypi.python.org/pypi/virtualenv) and [virtualenvwrapper] (https://virtualenvwrapper.readthedocs.io/en/latest/index.html).
 
+Firstly, install virtualenv and virtualenvwrapper.
+
     pip install virtualenv
-    pip install virtualeneuvwrapper
+    pip install virtualenvwrapper
 
 And then execute a shell script to activate a virtual environment.
 
-	source virtualenvwrapper.sh
+	source virtualenvwrapper.sh 
+
+(Try `source /usr/local/bin/virtualenvwrapper.sh` instead if you cannot not activate a virtual environment succussfully. And please refer to the doc of virtualenvwrapper.)
 
 Then create a virtual environment for the project, and then activate it.
 
@@ -39,16 +43,23 @@ Then create a virtual environment for the project, and then activate it.
 
 (As we are going to execute Django on python 3, we should tell virtualenv where the python3 located by issuing `mkvirtualenv -p /usr/bin/python3.5 rango`, which the location of python3 could be found by issuing `whereis python3`)
 
-When a `(rango)$` is shown on promte, you are successfully in a virtual environment `rango`.
+When a `(rango)$` is shown on prompt, you are successfully in a virtual environment `rango`.
+
+Once a virtual environment is setup, we are focus on Python stuffs now:
+
 Check if you have Django installed with `pip list`:
 
-	`pip list`
+	pip list
 
 Install Django with `pip`:
 
 	pip install django
 
-This will install the latest stable Django.
+This will install the latest stable Django. However, we should install all the required package with `requiruments.txt`.
+
+	pip install -r requirements.txt
+
+It will install the packages automatically with matching version.
 
 ### The Setup process 2:
 Setup the environment with docker.
@@ -91,12 +102,12 @@ Reference
 * Semantic Version: https://forum.syncthing.net/t/best-cheap-arm-board-for-syncthing/9103 -> [restic] (https://restic.github.io) -> [Semantic Version] (http://semver.org)
 
 ## API
-* [Designing a RESTful Web API] http://blog.luisrei.com/articles/rest.html from Tango with Django 1.9 ebook, Chapter 13
 * [“Create a Django API in Under 20 Minutes”] (https://medium.com/@scottdomes/create-a-django-api-in-under-20-minutes-2a082a60f6f3)
+* Google: Django and Angular 2 -> [Reddit: Django with Angular 2/] (https://www.reddit.com/r/django/comments/51k896/django_with_angular_2/) -> [Slides.com: 5 quick tips django docker] (http://slides.com/jamespacileo/5-quick-tips-django-docker-4#/)
 
 ## Docker
 * [Django by Docker Official Image] (https://store.docker.com/images/65765d71-d893-407d-a707-486c7381dfbf?tab=description)
-* [Quickstart: Compose and Django] (https://docs.docker.com/compose/django/)
+* [Quickstrt: Compose and Django] (https://docs.docker.com/compose/django/)
 
 ## Git 
 * [A successful Git branching model] (http://nvie.com/posts/a-successful-git-branching-model/) from [Git flow 開發流程] (https://ihower.tw/blog/archives/5140)
@@ -136,4 +147,4 @@ License
 GitUp is copyright 2015-2016 Aaron Law and available under [GPL v3 license](http://www.gnu.org/licenses/gpl-3.0.txt). See the [LICENSE](LICENSE) file in the project for more information.
 
 
-Last update: 2016-12-28 01:27, Bangkok
+Last update: 2017-03-23 01:27, Hong Kong
